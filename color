@@ -1,0 +1,30 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class ColorBox extends JPanel {
+    private Color color;
+
+    public ColorBox(Color color) {
+        this.color = color;
+        setPreferredSize(new Dimension(200, 200)); // Set the size of the box
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(color);
+        g.fillRect(0, 0, getWidth(), getHeight()); // Fill the rectangle with the color
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Color Box");
+        Color color = new Color(255, 0, 0); // Example: Red color
+        ColorBox colorBox = new ColorBox(color);
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(colorBox);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null); // Center the window
+    }
+}
